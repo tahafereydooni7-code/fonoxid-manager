@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d18">
 <meta name="application-version" content="26.0.0">
-<title>Fonoxid manager</title>
+<title>Fonoxid manager V29.1</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -627,6 +627,15 @@ select option {
   gap:7px;
 }
 
+/* V28 SESSION SECURITY */
+.session-security-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.session-security-item{padding:12px;border:1px solid var(--border);border-radius:11px;background:var(--panel2);min-width:0}
+.session-security-item span{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}
+.session-security-item strong{display:block;font-size:12px;overflow-wrap:anywhere}
+.session-security-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+#sessionSecurityStatus{font-size:12px;margin-top:10px;min-height:18px}
+@media(max-width:640px){.session-security-grid{grid-template-columns:1fr 1fr}.session-security-actions .btn{flex:1 1 100%}}
+
 .setting-row {
   display:flex;
   align-items:center;
@@ -1052,8 +1061,8 @@ input, textarea, select, .list-item {
 .calendar-toolbar-row{justify-content:space-between;margin-bottom:14px}.calendar-date-nav{justify-content:flex-end}.calendar-date-nav strong{min-width:145px;text-align:center}
 .calendar-view-switch{display:flex;gap:6px}.calendar-view-btn.active{border-color:var(--primary);color:var(--primary);background:var(--accent-wash)}
 .calendar-weekdays,.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}.calendar-weekdays{margin-bottom:7px}.calendar-weekdays div{text-align:center;color:var(--muted);font-size:11px;font-weight:700;padding:7px 2px}
-.calendar-day{min-height:82px;padding:7px;border:1px solid var(--border);border-radius:11px;background:var(--panel2);color:var(--text);text-align:left;min-width:0;overflow:hidden}.calendar-day.outside{opacity:.42}.calendar-day.today{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}.calendar-day.selected{background:var(--accent-wash);border-color:var(--primary)}.calendar-day-number{font-size:12px;font-weight:800}.calendar-day-events{display:flex;flex-direction:column;gap:3px;margin-top:5px}.calendar-event-chip{font-size:10px;line-height:1.25;padding:3px 4px;border-radius:5px;background:var(--accent-wash);color:var(--primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.calendar-agenda{display:grid;gap:8px}.calendar-agenda-item{padding:11px;border:1px solid var(--border);border-radius:10px;background:var(--panel2)}.calendar-agenda-item strong{display:block}.calendar-agenda-item small{color:var(--muted)}.calendar-agenda-item p{margin:6px 0 0;color:var(--muted);font-size:12px}.calendar-agenda-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.calendar-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.calendar-description-field{grid-column:1/-1}.calendar-form-actions{margin-top:12px}.calendar-save-status,.muted{color:var(--muted);font-size:12px}.calendar-list-heading{justify-content:space-between}.calendar-empty{padding:16px;text-align:center;color:var(--muted)}
-html[dir="rtl"] body{text-align:right}html[dir="rtl"] .sidebar,html[dir="rtl"] .main{direction:rtl}html[dir="rtl"] .calendar-day{text-align:right}html[dir="rtl"] .calendar-date-nav{flex-direction:row-reverse}html[dir="rtl"] .calendar-form-actions{flex-direction:row-reverse}html[dir="rtl"] .nav-btn{text-align:right}html[dir="rtl"] .mobile-quick-nav{direction:rtl}
+.calendar-day{min-height:82px;padding:7px;border:1px solid var(--border);border-radius:11px;background:var(--panel2);color:var(--text);text-align:center;min-width:0;overflow:hidden}.calendar-day-number{display:block;text-align:center}.calendar-day-events{align-items:center}.calendar-event-chip{max-width:100%;text-align:center}.calendar-day.outside{opacity:.42}.calendar-day.today{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}.calendar-day.selected{background:var(--accent-wash);border-color:var(--primary)}.calendar-day-number{font-size:12px;font-weight:800}.calendar-day-events{display:flex;flex-direction:column;gap:3px;margin-top:5px}.calendar-event-chip{font-size:10px;line-height:1.25;padding:3px 4px;border-radius:5px;background:var(--accent-wash);color:var(--primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.calendar-agenda{display:grid;gap:8px}.calendar-agenda-item{padding:11px;border:1px solid var(--border);border-radius:10px;background:var(--panel2)}.calendar-agenda-item strong{display:block}.calendar-agenda-item small{color:var(--muted)}.calendar-agenda-item p{margin:6px 0 0;color:var(--muted);font-size:12px}.calendar-agenda-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.calendar-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.calendar-description-field{grid-column:1/-1}.calendar-form-actions{margin-top:12px}.calendar-save-status,.muted{color:var(--muted);font-size:12px}.calendar-list-heading{justify-content:space-between}.calendar-empty{padding:16px;text-align:center;color:var(--muted)}
+html[dir="rtl"] body{text-align:right}html[dir="rtl"] .sidebar,html[dir="rtl"] .main{direction:rtl}html[dir="rtl"] .calendar-day{text-align:center}html[dir="rtl"] .calendar-date-nav{flex-direction:row-reverse}html[dir="rtl"] .calendar-form-actions{flex-direction:row-reverse}html[dir="rtl"] .nav-btn{text-align:right}html[dir="rtl"] .mobile-quick-nav{direction:rtl}
 @media(max-width:700px){.calendar-toolbar-row{align-items:stretch}.calendar-view-switch{width:100%}.calendar-view-switch .btn{flex:1;padding:9px 5px}.calendar-date-nav{width:100%;justify-content:space-between}.calendar-date-nav strong{flex:1;min-width:0}.calendar-day{min-height:61px;padding:5px 3px}.calendar-event-chip{font-size:9px;padding:2px}.calendar-form-grid{grid-template-columns:1fr}.calendar-description-field{grid-column:auto}.calendar-weekdays,.calendar-grid{gap:3px}.calendar-weekdays div{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.calendar-day,.calendar-event-chip{transition:none!important}}
 
@@ -1138,6 +1147,46 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior:auto !important; }
+}
+
+
+
+/* COMPACT MOBILE PREVIEW — experimental only.
+   Preserve the existing theme, full-bleed background and edge-to-edge layout.
+   No page scaling, colored frame, black margins or outer borders. */
+@media (max-width: 760px) {
+  .sidebar { padding: 10px 11px 8px; }
+  .sidebar .logo { margin: 0 5px; }
+  .sidebar .tagline { margin: 0 5px; }
+  .nav-menu { gap: 5px; margin-top: 9px; }
+  .nav-btn { padding: 8px 9px; font-size: 11px; }
+  .main { padding: 15px 11px 16px; }
+  .topbar { gap: 8px; margin-bottom: 15px; }
+  .topbar h1 { font-size: clamp(18px, 4.7vw, 21px); }
+  .section-title { font-size: 18px; margin-bottom: 5px; }
+  .section-desc { font-size: 11px; margin-bottom: 13px; }
+  .card { padding: 13px; border-radius: 13px; }
+  .card h3 { font-size: 14px; margin-bottom: 7px; }
+  .card p { font-size: 11px; }
+  .grid { gap: 11px; }
+  .stat-grid { gap: 6px; }
+  .stat, .stat-card { padding: 11px 9px; }
+  .stat strong, .stat-card strong { font-size: 19px; }
+  .btn, .small-btn { min-height: 34px; padding: 8px 10px; font-size: 11px; }
+  .field { margin-bottom: 10px; }
+  label { font-size: 11px; }
+  input, textarea, select { padding: 9px 10px; }
+  .list-item { padding: 10px; gap: 8px; }
+  .mobile-quick-nav { padding-top: 3px; }
+  .mobile-quick-btn { min-height: 47px; gap: 2px; font-size: 9px; }
+  .mobile-quick-icon { font-size: 18px; }
+  #appScreen { padding-bottom: calc(61px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 380px) {
+  .main { padding-inline: 9px; }
+  .card { padding: 11px; }
+  .nav-btn { padding: 7px 8px; }
+  .stat, .stat-card { padding: 9px 7px; }
 }
 
 </style>
@@ -1329,7 +1378,7 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
         <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
           <button class="btn primary" id="cloudUploadButton">Upload to My Vault</button>
           <button class="btn" id="cloudRefreshButton">Refresh</button>
-          <button class="btn" id="cloudBackButton" disabled>Back</button>
+          <button class="btn hidden" id="cloudBackButton" type="button" title="Go to the parent folder">Back to parent</button>
           <button class="btn" id="cloudNewFolderButton">New Folder</button>
         </div>
         <div id="cloudVaultMessage" class="result hidden" style="margin-top:14px"></div>
@@ -1373,6 +1422,7 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
           <div class="field">
             <input type="file" id="fileInput">
           </div>
+          <button class="btn" type="button" id="clearFileSelection">Clear selection</button>
 
           <div id="fileResult" class="result hidden"></div>
         </div>
@@ -1400,6 +1450,7 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
           <div class="field">
             <input type="file" id="managerFiles" multiple>
           </div>
+          <button class="btn" type="button" id="clearManagerSelection">Clear selection</button>
 
           <button class="btn primary" id="managerButton">
             Inspect Selected Files
@@ -1458,6 +1509,16 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
           <div id="urlResult" class="result hidden"></div>
         </div>
 
+        <div class="card" id="passwordGeneratorCard">
+          <h3>Password Generator</h3>
+          <p>Generate a random password locally. Do not reuse it across accounts.</p>
+          <div class="field"><label for="generatedPasswordLength">Length</label><input id="generatedPasswordLength" type="number" min="12" max="64" value="20"></div>
+          <button class="btn primary" id="generatePasswordButton" type="button">Generate Password</button>
+          <div class="field"><input id="generatedPassword" type="text" readonly placeholder="Your generated password"></div>
+          <button class="btn" id="copyGeneratedPasswordButton" type="button">Copy Password</button>
+          <div id="passwordGeneratorMessage" class="message hidden" aria-live="polite"></div>
+        </div>
+
       </div>
     </section>
 
@@ -1499,6 +1560,14 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
           </button>
 
           <div id="convertResult" class="result hidden"></div>
+        </div>
+
+        <div class="card" id="quickCalculatorCard">
+          <h3>Quick Calculator</h3>
+          <p>Calculate basic arithmetic locally in your browser.</p>
+          <div class="field"><label for="calculatorExpression">Expression</label><input id="calculatorExpression" type="text" inputmode="decimal" placeholder="(12 + 8) / 4" autocomplete="off"></div>
+          <button class="btn primary" id="calculatorButton" type="button">Calculate</button>
+          <div id="calculatorResult" class="result hidden" aria-live="polite"></div>
         </div>
 
         <div class="card">
@@ -1557,7 +1626,9 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
           </button>
 
           <div id="taskMessage" class="message hidden"></div>
-
+          <div class="field"><input id="taskSearchInput" type="search" placeholder="Search tasks..." aria-label="Search tasks"></div>
+          <div class="field"><select id="taskStatusFilter" aria-label="Filter tasks"><option value="all">All tasks</option><option value="open">Active tasks</option><option value="done">Completed tasks</option></select></div>
+          <div id="taskSummary" class="muted" aria-live="polite"></div>
           <div id="tasksList" class="list">
             <div class="empty">No tasks loaded.</div>
           </div>
@@ -1639,7 +1710,7 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
         <button class="btn" id="calendarPrev" aria-label="Previous period">‹</button>
         <strong id="calendarPeriodLabel" aria-live="polite"></strong>
         <button class="btn" id="calendarNext" aria-label="Next period">›</button>
-        <button class="btn" id="calendarToday" data-i18n="Today">Today</button>
+        <button class="btn" id="calendarToday" data-i18n="Today">Today</button><button class="btn" id="calendarClearSelection" type="button" data-i18n="Clear selection">Clear selection</button>
       </div>
     </div>
     <div class="calendar-grid-wrap" id="calendarGridWrap">
@@ -1768,7 +1839,7 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
 
   <div class="card language-settings-card">
     <h3 data-i18n="Language & Region">Language & Region</h3>
-    <p class="muted" data-i18n="Choose the language used throughout FoNoXid Core.">Choose the language used throughout FoNoXid Core.</p>
+    <p class="muted" data-i18n="Choose the language used throughout FoNoXid Manager.">Choose the language used throughout FoNoXid Manager.</p>
     <div class="setting-row">
       <label for="languageSelect" data-i18n="Interface language">Interface language</label>
       <select id="languageSelect">
@@ -1776,6 +1847,21 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
       </select>
     </div>
     <p id="languageStatus" class="muted" role="status" data-i18n="Language preference is saved on this device and synced to your account when available.">Language preference is saved on this device and synced to your account when available.</p>
+  </div>
+
+  <div class="card" id="sessionSecurityCard">
+    <h3 data-i18n="Session & Security">Session & Security</h3>
+    <p class="muted" data-i18n="Review the active account session and refresh it when needed.">Review the active account session and refresh it when needed.</p>
+    <div class="session-security-grid">
+      <div class="session-security-item"><span data-i18n="Account">Account</span><strong id="sessionAccountEmail">—</strong></div>
+      <div class="session-security-item"><span data-i18n="Session status">Session status</span><strong id="sessionAccountStatus">Not checked</strong></div>
+      <div class="session-security-item"><span data-i18n="Last sign-in">Last sign-in</span><strong id="sessionLastSignIn">—</strong></div>
+      <div class="session-security-item"><span data-i18n="Session expires">Session expires</span><strong id="sessionExpiresAt">—</strong></div>
+    </div>
+    <div class="session-security-actions">
+      <button class="btn primary" id="refreshAuthSessionButton" type="button" data-i18n="Refresh session">Refresh session</button>
+    </div>
+    <p id="sessionSecurityStatus" class="muted" role="status" aria-live="polite" data-i18n="Session details are available while signed in.">Session details are available while signed in.</p>
   </div>
 
   <div class="card">
@@ -1791,8 +1877,8 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
 
 <!-- APP FOOTER -->
 <footer class="app-footer">
-  <p>Fonoxid manager V26</p>
-  <span>Final Edition</span>
+  <p>FoNoXid Manager V28</p>
+  <span>Session Security Upgrade · Compact Mobile</span>
 </footer>
 
 </main>
@@ -1801,8 +1887,8 @@ button, .btn, .nav-btn, .small-btn { min-height:40px; }
   
 <script>
 /* =====================================
-   Fonoxid manager V26
-   FINAL APPLICATION ENGINE
+   FoNoXid Manager V28
+   COMPACT MOBILE + SESSION SECURITY
 ===================================== */
 
 const SUPABASE_URL = "https://oeyyjujjfgbrbphdablx.supabase.co";
@@ -1827,7 +1913,7 @@ let eventsData = [];
 let notificationsData = [];
 
 /* =====================================
-   FoNoXid Core V6.5
+   FoNoXid Manager V29 — Productivity & Localization Upgrade
    CENTRAL FOUNDATION
    Legacy feature IDs and Supabase tables
    are intentionally preserved in this build.
@@ -1958,7 +2044,7 @@ function showResult(id, message) {
 /* V7.0 GLOBAL LANGUAGE ENGINE — 15 locales, no external translation service */
 const languageNames = {fa:"فارسی",en:"English",ar:"العربية",zh:"中文",es:"Español",fr:"Français",de:"Deutsch",ru:"Русский",ja:"日本語",ko:"한국어",hi:"हिन्दी",pt:"Português",tr:"Türkçe",it:"Italiano",nl:"Nederlands"};
 const translations = {
-  fa:{"Dashboard":"داشبورد","File Center":"مرکز فایل‌ها","Security Center":"مرکز امنیت","System Tools":"ابزارهای سیستم","Productivity":"بهره‌وری","Text Analyzer":"تحلیل‌گر متن","Notification Center":"مرکز اعلان‌ها","Smart Calendar":"تقویم هوشمند","Analytics Dashboard":"داشبورد آمار","System Settings":"تنظیمات سیستم","Plan your events with monthly, weekly and daily views.":"رویدادهایت را در نمای ماهانه، هفتگی و روزانه برنامه‌ریزی کن.","Month":"ماه","Week":"هفته","Day":"روز","Today":"امروز","Create or edit event":"ایجاد یا ویرایش رویداد","Event title":"عنوان رویداد","What is the event?":"عنوان رویداد را وارد کن","Date":"تاریخ","Time":"زمان","Related task (optional)":"وظیفه مرتبط (اختیاری)","No linked task":"بدون وظیفه مرتبط","Description (optional)":"توضیحات (اختیاری)","Add details...":"جزئیات را وارد کن...","Save event":"ذخیره رویداد","Cancel":"لغو","Upcoming events":"رویدادهای پیش‌رو","No events scheduled.":"رویدادی برنامه‌ریزی نشده است.","Language & Region":"زبان و منطقه","Choose the language used throughout FoNoXid Core.":"زبان مورد استفاده در سراسر FoNoXid Core را انتخاب کن.","Interface language":"زبان رابط کاربری","Language preference is saved on this device and synced to your account when available.":"زبان انتخابی در این دستگاه ذخیره و در صورت دسترسی با حساب همگام می‌شود.","Edit":"ویرایش","Delete":"حذف","No events for this period.":"برای این بازه رویدادی وجود ندارد.","Event saved.":"رویداد ذخیره شد.","Event updated.":"رویداد ویرایش شد.","Event deleted.":"رویداد حذف شد.","Enter an event title and date.":"عنوان و تاریخ رویداد را وارد کن.","Cloud sync active":"همگام‌سازی ابری فعال است","Device-only mode":"حالت ذخیره‌سازی روی دستگاه"},
+  fa:{"Session & Security":"نشست و امنیت","Review the active account session and refresh it when needed.":"نشست فعال حساب را بررسی کنید و در صورت نیاز آن را تازه‌سازی کنید.","Account":"حساب کاربری","Session status":"وضعیت نشست","Last sign-in":"آخرین ورود","Session expires":"زمان انقضای نشست","Refresh session":"تازه‌سازی نشست","Session details are available while signed in.":"جزئیات نشست هنگام ورود به حساب نمایش داده می‌شود.","Active":"فعال","Not signed in":"وارد نشده‌اید","Not checked":"بررسی نشده","Session refreshed successfully.":"نشست با موفقیت تازه‌سازی شد.","Could not refresh the session.":"تازه‌سازی نشست انجام نشد.","Dashboard":"داشبورد","File Center":"مرکز فایل‌ها","Security Center":"مرکز امنیت","System Tools":"ابزارهای سیستم","Productivity":"بهره‌وری","Text Analyzer":"تحلیل‌گر متن","Notification Center":"مرکز اعلان‌ها","Smart Calendar":"تقویم هوشمند","Analytics Dashboard":"داشبورد آمار","System Settings":"تنظیمات سیستم","Plan your events with monthly, weekly and daily views.":"رویدادهایت را در نمای ماهانه، هفتگی و روزانه برنامه‌ریزی کن.","Month":"ماه","Week":"هفته","Day":"روز","Today":"امروز","Create or edit event":"ایجاد یا ویرایش رویداد","Event title":"عنوان رویداد","What is the event?":"عنوان رویداد را وارد کن","Date":"تاریخ","Time":"زمان","Related task (optional)":"وظیفه مرتبط (اختیاری)","No linked task":"بدون وظیفه مرتبط","Description (optional)":"توضیحات (اختیاری)","Add details...":"جزئیات را وارد کن...","Save event":"ذخیره رویداد","Cancel":"لغو","Upcoming events":"رویدادهای پیش‌رو","No events scheduled.":"رویدادی برنامه‌ریزی نشده است.","Language & Region":"زبان و منطقه","Choose the language used throughout FoNoXid Manager.":"زبان مورد استفاده در سراسر FoNoXid Manager را انتخاب کن.","Interface language":"زبان رابط کاربری","Language preference is saved on this device and synced to your account when available.":"زبان انتخابی در این دستگاه ذخیره و در صورت دسترسی با حساب همگام می‌شود.","Edit":"ویرایش","Delete":"حذف","No events for this period.":"برای این بازه رویدادی وجود ندارد.","Event saved.":"رویداد ذخیره شد.","Event updated.":"رویداد ویرایش شد.","Event deleted.":"رویداد حذف شد.","Enter an event title and date.":"عنوان و تاریخ رویداد را وارد کن.","Cloud sync active":"همگام‌سازی ابری فعال است","Device-only mode":"حالت ذخیره‌سازی روی دستگاه"},
   en:{},
   ar:{"Dashboard":"لوحة التحكم","File Center":"مركز الملفات","Security Center":"مركز الأمان","System Tools":"أدوات النظام","Productivity":"الإنتاجية","Text Analyzer":"محلل النصوص","Notification Center":"مركز الإشعارات","Smart Calendar":"التقويم الذكي","Analytics Dashboard":"لوحة التحليلات","System Settings":"إعدادات النظام","Plan your events with monthly, weekly and daily views.":"نظّم أحداثك باستخدام العروض الشهرية والأسبوعية واليومية.","Month":"شهر","Week":"أسبوع","Day":"يوم","Today":"اليوم","Create or edit event":"إنشاء حدث أو تعديله","Event title":"عنوان الحدث","Date":"التاريخ","Time":"الوقت","Related task (optional)":"مهمة مرتبطة (اختياري)","No linked task":"لا توجد مهمة مرتبطة","Description (optional)":"الوصف (اختياري)","Save event":"حفظ الحدث","Cancel":"إلغاء","Upcoming events":"الأحداث القادمة","No events scheduled.":"لا توجد أحداث مجدولة.","Language & Region":"اللغة والمنطقة","Interface language":"لغة الواجهة","Edit":"تعديل","Delete":"حذف"},
   zh:{"Dashboard":"仪表板","File Center":"文件中心","Security Center":"安全中心","System Tools":"系统工具","Productivity":"效率中心","Text Analyzer":"文本分析器","Notification Center":"通知中心","Smart Calendar":"智能日历","Analytics Dashboard":"数据分析面板","System Settings":"系统设置","Plan your events with monthly, weekly and daily views.":"使用月、周和日视图安排活动。","Month":"月","Week":"周","Day":"日","Today":"今天","Create or edit event":"创建或编辑活动","Event title":"活动标题","Date":"日期","Time":"时间","Related task (optional)":"关联任务（可选）","No linked task":"不关联任务","Description (optional)":"描述（可选）","Save event":"保存活动","Cancel":"取消","Upcoming events":"即将到来的活动","No events scheduled.":"暂无日程。","Language & Region":"语言和地区","Interface language":"界面语言","Edit":"编辑","Delete":"删除"},
@@ -1988,13 +2074,13 @@ Object.assign(translations.fa, {
   "Analyze text length, words, characters and reading time.":"طول متن، تعداد واژه‌ها و نویسه‌ها و زمان مطالعه را تحلیل کنید.","Text Input":"ورودی متن","Paste or type your text here...":"متن خود را اینجا وارد یا جای‌گذاری کنید...","Analyze Text":"تحلیل متن",
   "Your updates, reminders and workspace activity in one place.":"به‌روزرسانی‌ها، یادآورها و فعالیت‌های فضای کاری در یک مکان.","Total notifications":"مجموع اعلان‌ها","Unread":"خوانده‌نشده","Today":"امروز","All":"همه","Read":"خوانده‌شده","Mark all read":"علامت‌گذاری همه به‌عنوان خوانده‌شده","Clear all":"پاک‌کردن همه","Your notifications will appear here.":"اعلان‌های شما اینجا نمایش داده می‌شوند.","Notifications are saved for this account on this device.":"اعلان‌ها برای این حساب و روی این دستگاه ذخیره می‌شوند.",
   "Analytics Dashboard":"داشبورد تحلیل و آمار","Your personal productivity overview.":"نمای کلی بهره‌وری شخصی شما.","Workspace Statistics":"آمار فضای کاری","Calendar Events":"رویدادهای تقویم","Task Completion":"میزان تکمیل وظایف","0% completed":"۰٪ تکمیل‌شده",
-  "Customize your Fonoxid manager experience.":"تجربه کار با FoNoXid Core را شخصی‌سازی کنید.","Appearance":"ظاهر","Interface Theme":"پوسته رابط کاربری","Dark":"تیره","Light":"روشن","Accent Color":"رنگ تأکیدی","Ocean Blue":"آبی اقیانوسی","Cyber Purple":"بنفش سایبری","Neon Green":"سبز نئونی","Crimson Red":"قرمز زرشکی","System Preferences":"ترجیحات سیستم","Reset Settings":"بازنشانی تنظیمات",
+  "Customize your Fonoxid manager experience.":"تجربه کار با FoNoXid Manager را شخصی‌سازی کنید.","Appearance":"ظاهر","Interface Theme":"پوسته رابط کاربری","Dark":"تیره","Light":"روشن","Accent Color":"رنگ تأکیدی","Ocean Blue":"آبی اقیانوسی","Cyber Purple":"بنفش سایبری","Neon Green":"سبز نئونی","Crimson Red":"قرمز زرشکی","System Preferences":"ترجیحات سیستم","Reset Settings":"بازنشانی تنظیمات",
   "Filter notifications":"فیلتر اعلان‌ها","Calendar view":"نمای تقویم","Previous period":"بازه قبلی","Next period":"بازه بعدی","What is the event?":"عنوان رویداد چیست؟","Add details...":"جزئیات را وارد کنید...",
   "No notes saved yet.":"هنوز یادداشتی ذخیره نشده است.","No tasks yet.":"هنوز وظیفه‌ای ثبت نشده است.","Task":"وظیفه","Delete notification":"حذف اعلان","Nothing in this filter.":"موردی با این فیلتر وجود ندارد.","You're all caught up.":"همه اعلان‌ها را بررسی کرده‌اید.","You're all caught up. New updates will appear here.":"همه اعلان‌ها را بررسی کرده‌اید؛ به‌روزرسانی‌های جدید اینجا نمایش داده می‌شوند.","Language saved on this device. Run the V7.0 SQL setup to enable account sync.":"زبان در این دستگاه ذخیره شد. برای همگام‌سازی با حساب، تنظیمات SQL نسخه ۷.۰ را اجرا کنید.","Language preference synced to your account.":"تنظیم زبان با حساب شما همگام شد.","Device-local mode: run the V6.9 SQL setup to enable cloud sync.":"حالت ذخیره‌سازی محلی: برای فعال‌سازی همگام‌سازی ابری، تنظیمات SQL نسخه ۶.۹ را اجرا کنید.","Cloud sync is active for this account.":"همگام‌سازی ابری برای این حساب فعال است.","Device-only mode":"حالت فقط روی دستگاه","Cloud sync active":"همگام‌سازی ابری فعال است",
   "Saved on this device; cloud sync failed.":"روی این دستگاه ذخیره شد؛ همگام‌سازی ابری انجام نشد.","Saved on this device. Run the V7.0 SQL setup for cloud sync.":"روی این دستگاه ذخیره شد. برای همگام‌سازی ابری، تنظیمات SQL نسخه ۷.۰ را اجرا کنید.","This folder is empty. Upload a file or create a folder to get started.":"این پوشه خالی است. برای شروع، فایلی بارگذاری یا پوشه‌ای ایجاد کنید.","Loading your private files…":"در حال بارگذاری فایل‌های خصوصی شما…","Could not load files. Check that the private bucket and Storage policies have been created.":"بارگذاری فایل‌ها ممکن نشد. ایجاد مخزن خصوصی و سیاست‌های Storage را بررسی کنید.","Please enter your email and password.":"لطفاً ایمیل و رمز عبور خود را وارد کنید.","Connecting to Supabase...":"در حال اتصال به Supabase...","Account created successfully.":"حساب کاربری با موفقیت ایجاد شد.","Login successful.":"ورود با موفقیت انجام شد.","Supabase is unavailable. Reload the page and try again.":"Supabase در دسترس نیست. صفحه را دوباره بارگذاری و تلاش کنید.","Could not initialize your session.":"راه‌اندازی نشست کاربری ممکن نشد.","User":"کاربر","Loading account...":"در حال بارگذاری حساب..."
 });
 Object.assign(translations.fa, {
-  "Name":"نام","Type":"نوع","Unknown":"نامشخص","Unknown type":"نوع نامشخص","Words":"واژه‌ها","Characters (with spaces)":"نویسه‌ها (با فاصله)","Characters (without spaces)":"نویسه‌ها (بدون فاصله)","Estimated reading time":"زمان تقریبی مطالعه","min":"دقیقه","Enter a sample password to evaluate it.":"برای ارزیابی، یک رمز عبور آزمایشی وارد کنید.","Very weak":"بسیار ضعیف","Weak":"ضعیف","Fair":"متوسط","Good":"خوب","Strong":"قوی","Very strong":"بسیار قوی","Estimated strength":"قدرت تخمینی","This is a basic local estimate, not a security guarantee.":"این فقط یک ارزیابی پایه و محلی است و تضمین امنیتی محسوب نمی‌شود.","Enter a website address to inspect it.":"برای بررسی، نشانی یک وب‌سایت را وارد کنید.","The address does not use HTTPS.":"این نشانی از HTTPS استفاده نمی‌کند.","The address contains embedded login information.":"این نشانی شامل اطلاعات ورود تعبیه‌شده است.","The hostname uses internationalized/punycode encoding; check it carefully.":"نام میزبان از کدگذاری بین‌المللی یا Punycode استفاده می‌کند؛ آن را با دقت بررسی کنید.","The host is an IP address rather than a typical domain name.":"میزبان یک نشانی IP است، نه یک دامنه معمولی.","The hostname has an unusually large number of subdomains.":"این نام میزبان تعداد غیرمعمولی زیردامنه دارد.","Things to review":"موارد نیازمند بررسی","No basic warning signs were detected.":"نشانه هشداردهنده پایه‌ای شناسایی نشد.","This heuristic cannot confirm that a website is safe.":"این ارزیابی نمی‌تواند ایمن بودن وب‌سایت را تأیید کند.","That does not look like a valid website address.":"این نشانی، معتبر به نظر نمی‌رسد.","Enter a valid number first.":"ابتدا یک عدد معتبر وارد کنید.","Choose a supported conversion.":"یک نوع تبدیل پشتیبانی‌شده انتخاب کنید.","Platform":"پلتفرم","Language":"زبان","Online":"متصل به اینترنت","Yes":"بله","No":"خیر","Theme updated.":"پوسته به‌روزرسانی شد.","Accent color updated.":"رنگ تأکیدی به‌روزرسانی شد.","Settings restored to default.":"تنظیمات به حالت پیش‌فرض بازگردانده شد.","Mark read":"علامت‌گذاری به‌عنوان خوانده‌شده","Delete":"حذف","No new notifications.":"اعلان جدیدی وجود ندارد.","A new note was saved.":"یادداشت جدید ذخیره شد.","Note deleted.":"یادداشت حذف شد.","Could not delete note.":"حذف یادداشت انجام نشد.","Select a file first.":"ابتدا یک فایل انتخاب کنید.","Select one or more files first.":"ابتدا یک یا چند فایل انتخاب کنید.","SHA-256 is unavailable in this browser context.":"SHA-256 در این محیط مرورگر در دسترس نیست."
+  "Quick Calculator":"ماشین‌حساب سریع","Calculate basic arithmetic locally in your browser.":"محاسبات پایه را به‌صورت محلی در مرورگر انجام دهید.","Expression":"عبارت ریاضی","Calculate":"محاسبه","Result":"نتیجه","Enter a valid arithmetic expression.":"یک عبارت ریاضی معتبر وارد کنید.","Check the expression and try again.":"عبارت را بررسی و دوباره تلاش کنید.","Password Generator":"ساخت رمز عبور","Generate a random password locally. Do not reuse it across accounts.":"یک رمز تصادفی به‌صورت محلی بسازید. آن را برای چند حساب استفاده نکنید.","Length":"طول","Generate Password":"ساخت رمز عبور","Your generated password":"رمز ساخته‌شده","Copy Password":"کپی رمز","Password generated locally. Save it in a trusted password manager.":"رمز به‌صورت محلی ساخته شد. آن را در یک مدیر رمز عبور معتبر ذخیره کنید.","Secure random generation is unavailable in this browser.":"ساخت تصادفی امن در این مرورگر در دسترس نیست.","Password copied.":"رمز کپی شد.","Copy is unavailable. Select and copy the password manually.":"کپی خودکار در دسترس نیست؛ رمز را دستی انتخاب و کپی کنید.","Search tasks...":"جست‌وجوی وظایف...","All tasks":"همه وظایف","Active tasks":"وظایف فعال","Completed tasks":"وظایف تکمیل‌شده","tasks shown":"وظیفه نمایش داده شده","No tasks match this filter.":"هیچ وظیفه‌ای با این فیلتر پیدا نشد.","Name":"نام","Type":"نوع","Unknown":"نامشخص","Unknown type":"نوع نامشخص","Words":"واژه‌ها","Characters (with spaces)":"نویسه‌ها (با فاصله)","Characters (without spaces)":"نویسه‌ها (بدون فاصله)","Estimated reading time":"زمان تقریبی مطالعه","min":"دقیقه","Enter a sample password to evaluate it.":"برای ارزیابی، یک رمز عبور آزمایشی وارد کنید.","Very weak":"بسیار ضعیف","Weak":"ضعیف","Fair":"متوسط","Good":"خوب","Strong":"قوی","Very strong":"بسیار قوی","Estimated strength":"قدرت تخمینی","This is a basic local estimate, not a security guarantee.":"این فقط یک ارزیابی پایه و محلی است و تضمین امنیتی محسوب نمی‌شود.","Enter a website address to inspect it.":"برای بررسی، نشانی یک وب‌سایت را وارد کنید.","The address does not use HTTPS.":"این نشانی از HTTPS استفاده نمی‌کند.","The address contains embedded login information.":"این نشانی شامل اطلاعات ورود تعبیه‌شده است.","The hostname uses internationalized/punycode encoding; check it carefully.":"نام میزبان از کدگذاری بین‌المللی یا Punycode استفاده می‌کند؛ آن را با دقت بررسی کنید.","The host is an IP address rather than a typical domain name.":"میزبان یک نشانی IP است، نه یک دامنه معمولی.","The hostname has an unusually large number of subdomains.":"این نام میزبان تعداد غیرمعمولی زیردامنه دارد.","Things to review":"موارد نیازمند بررسی","No basic warning signs were detected.":"نشانه هشداردهنده پایه‌ای شناسایی نشد.","This heuristic cannot confirm that a website is safe.":"این ارزیابی نمی‌تواند ایمن بودن وب‌سایت را تأیید کند.","That does not look like a valid website address.":"این نشانی، معتبر به نظر نمی‌رسد.","Enter a valid number first.":"ابتدا یک عدد معتبر وارد کنید.","Choose a supported conversion.":"یک نوع تبدیل پشتیبانی‌شده انتخاب کنید.","Platform":"پلتفرم","Language":"زبان","Online":"متصل به اینترنت","Yes":"بله","No":"خیر","Theme updated.":"پوسته به‌روزرسانی شد.","Accent color updated.":"رنگ تأکیدی به‌روزرسانی شد.","Settings restored to default.":"تنظیمات به حالت پیش‌فرض بازگردانده شد.","Mark read":"علامت‌گذاری به‌عنوان خوانده‌شده","Delete":"حذف","No new notifications.":"اعلان جدیدی وجود ندارد.","A new note was saved.":"یادداشت جدید ذخیره شد.","Note deleted.":"یادداشت حذف شد.","Could not delete note.":"حذف یادداشت انجام نشد.","Select a file first.":"ابتدا یک فایل انتخاب کنید.","Select one or more files first.":"ابتدا یک یا چند فایل انتخاب کنید.","SHA-256 is unavailable in this browser context.":"SHA-256 در این محیط مرورگر در دسترس نیست."
 });
 
 let currentLanguage = "en";
@@ -2067,7 +2153,10 @@ const panelTitles = {
 };
 
 function openPanel(panelName) {
+  const validPanels = Object.keys(panelTitles);
+  if (!validPanels.includes(panelName)) panelName = "dashboard";
   FoNoXidCore.setActivePanel(panelName);
+  FoNoXidCore.writeLocal("fonoxid_active_panel", panelName);
   document.querySelectorAll(".panel").forEach(panel => {
     panel.classList.toggle("active", panel.id === panelName);
   });
@@ -2081,7 +2170,7 @@ function openPanel(panelName) {
 
   const title = $("pageTitle");
   if (title) {
-    title.textContent = t(panelTitles[panelName] || "FoNoXid Core");
+    title.textContent = t(panelTitles[panelName] || "FoNoXid Manager");
   }
 }
 
@@ -2126,7 +2215,11 @@ function showApplication(user) {
     $("userEmail").textContent = user.email || "User";
   }
 
-  openPanel("dashboard");
+  const savedPanel = FoNoXidCore.readLocal("fonoxid_active_panel", "dashboard");
+  const panelToShow = sameUserAlreadyVisible
+    ? (FoNoXidCore.state.activePanel || savedPanel || "dashboard")
+    : (Object.prototype.hasOwnProperty.call(panelTitles, savedPanel) ? savedPanel : "dashboard");
+  openPanel(panelToShow);
   if (!sameUserAlreadyVisible) {
     notificationCloudAvailable = true;
     loadCloudData();
@@ -2139,6 +2232,7 @@ function showApplication(user) {
 
 function showAuthentication() {
   currentUser = null;
+  renderSessionSecurity(null);
   Object.assign(storageAnalyticsState, {scanned:false,loading:false,fileCount:0,totalBytes:0,categories:{}});
   renderStorageAnalytics();
   FoNoXidCore.setAuthenticated(false);
@@ -2225,6 +2319,50 @@ $("authSwitch")?.addEventListener("click", () => {
 
   showMessage("authMessage", "");
 });
+
+/* V28 SESSION SECURITY — uses the existing Supabase Auth session */
+function renderSessionSecurity(session) {
+  const email = $("sessionAccountEmail");
+  const status = $("sessionAccountStatus");
+  const lastSignIn = $("sessionLastSignIn");
+  const expires = $("sessionExpiresAt");
+  if (email) email.textContent = session?.user?.email || currentUser?.email || "—";
+  if (status) status.textContent = session?.user ? t("Active") : t("Not signed in");
+  if (lastSignIn) {
+    const value = session?.user?.last_sign_in_at;
+    lastSignIn.textContent = value ? new Date(value).toLocaleString() : "—";
+  }
+  if (expires) {
+    const value = Number(session?.expires_at || 0);
+    expires.textContent = value ? new Date(value * 1000).toLocaleString() : "—";
+  }
+}
+
+async function refreshAuthSession() {
+  const button = $("refreshAuthSessionButton");
+  const status = $("sessionSecurityStatus");
+  if (!db || !currentUser?.id) {
+    if (status) status.textContent = t("Not signed in");
+    renderSessionSecurity(null);
+    return;
+  }
+  if (button) button.disabled = true;
+  if (status) status.textContent = "Checking and refreshing the secure session…";
+  try {
+    const { data, error } = await db.auth.refreshSession();
+    if (error) throw error;
+    if (!data?.session) throw new Error("No active session was returned.");
+    currentUser = data.session.user || currentUser;
+    renderSessionSecurity(data.session);
+    if (status) status.textContent = t("Session refreshed successfully.");
+  } catch (error) {
+    if (status) status.textContent = t("Could not refresh the session.") + " " + (error.message || "");
+  } finally {
+    if (button) button.disabled = false;
+  }
+}
+
+$("refreshAuthSessionButton")?.addEventListener("click", refreshAuthSession);
 
 /* LOGOUT */
 
@@ -2553,24 +2691,34 @@ async function loadTasks() {
 function renderTasks() {
   const list = $("tasksList");
   if (!list) return;
-
-  if (tasksData.length === 0) {
-    list.innerHTML = "<p>No tasks yet.</p>";
+  const query = ($("taskSearchInput")?.value || "").trim().toLocaleLowerCase();
+  const status = $("taskStatusFilter")?.value || "all";
+  const filtered = tasksData.filter(task => {
+    const matchesText = String(task.content || "").toLocaleLowerCase().includes(query);
+    const matchesStatus = status === "all" || (status === "done" ? !!task.is_completed : !task.is_completed);
+    return matchesText && matchesStatus;
+  });
+  const summary = $("taskSummary");
+  if (summary) summary.textContent = `${filtered.length} / ${tasksData.length} ${t("tasks shown")}`;
+  if (filtered.length === 0) {
+    list.innerHTML = `<p>${tasksData.length ? t("No tasks match this filter.") : t("No tasks yet.")}</p>`;
     return;
   }
-
-  list.innerHTML = tasksData.map(task => `
+  list.innerHTML = filtered.map(task => `
     <div class="list-item">
       <span>${escapeHTML(task.content)}</span>
       <button class="btn" data-toggle-task="${escapeHTML(task.id)}">
-        ${task.is_completed ? "Undo" : "Complete"}
+        ${task.is_completed ? t("Undo") : t("Complete")}
       </button>
       <button class="btn" data-delete-task="${escapeHTML(task.id)}">
-        Delete
+        ${t("Delete")}
       </button>
     </div>
   `).join("");
 }
+
+$("taskSearchInput")?.addEventListener("input", renderTasks);
+$("taskStatusFilter")?.addEventListener("change", renderTasks);
 
 async function addTask() {
   if (!currentUser) return;
@@ -2739,7 +2887,16 @@ function renderEvents(){
   else list.innerHTML=eventsData.map(eventMarkup).join("");
   updateAnalytics();renderCalendar();
 }
-function refreshTaskOptions(){const select=$("eventTaskLink");if(!select)return;const selected=select.value;select.innerHTML=`<option value="">${t("No linked task")}</option>`+tasksData.map(task=>`<option value="${escapeHTML(task.id)}">${escapeHTML(task.content||task.title||"Task")}</option>`).join("");if(tasksData.some(x=>String(x.id)===selected))select.value=selected;}
+function refreshTaskOptions(){
+  const select=$("eventTaskLink");if(!select)return;
+  const selected=select.value;
+  const validTasks=Array.isArray(tasksData)?tasksData:[];
+  select.innerHTML=`<option value="">${t("No linked task")}</option>`+
+    (validTasks.length
+      ? validTasks.map(task=>`<option value="${escapeHTML(task.id)}">${escapeHTML(task.content||task.title||"Task")}</option>`).join("")
+      : `<option value="" disabled>${t("No tasks available — create one in Tasks.")}</option>`);
+  if(validTasks.some(x=>String(x.id)===selected))select.value=selected;
+}
 function resetEventForm(){editingEventId=null;["eventTitle","eventDate","eventTime","eventDescription"].forEach(id=>{if($(id))$(id).value="";});if($("eventTaskLink"))$("eventTaskLink").value="";if($("addEventButton"))$("addEventButton").textContent=t("Save event");setVisible($("cancelEventEdit"),false);}
 function beginEditEvent(id){const item=eventsData.find(e=>String(e.id)===String(id));if(!item)return;editingEventId=item.id;$("eventTitle").value=item.title||"";$("eventDate").value=item.date||"";$("eventTime").value=item.time||"";$("eventDescription").value=item.description||"";refreshTaskOptions();$("eventTaskLink").value=item.taskId||"";$("addEventButton").textContent=t("Save event");setVisible($("cancelEventEdit"),true);$("eventTitle").focus();}
 $("addEventButton")?.addEventListener("click",async()=>{
@@ -2755,8 +2912,35 @@ function handleCalendarAction(target){const edit=target.closest("[data-edit-even
 $("eventList")?.addEventListener("click",e=>handleCalendarAction(e.target));$("calendarAgenda")?.addEventListener("click",e=>handleCalendarAction(e.target));
 $("calendarGrid")?.addEventListener("click",e=>{const day=e.target.closest("[data-calendar-date]");if(!day)return;selectedCalendarDate=day.dataset.calendarDate;calendarCursor=safeDate(selectedCalendarDate);calendarView="day";renderCalendar();});
 document.querySelectorAll("[data-calendar-view]").forEach(b=>b.addEventListener("click",()=>{calendarView=b.dataset.calendarView;renderCalendar();}));
-$("calendarPrev")?.addEventListener("click",()=>{calendarCursor=new Date(calendarCursor);if(calendarView==="month"&&currentLanguage==="fa")calendarCursor.setDate(calendarCursor.getDate()-16);else calendarCursor.setDate(calendarCursor.getDate()-(calendarView==="month"?1:calendarView==="week"?7:1));renderCalendar();});
-$("calendarNext")?.addEventListener("click",()=>{calendarCursor=new Date(calendarCursor);if(calendarView==="month"&&currentLanguage==="fa")calendarCursor.setDate(calendarCursor.getDate()+16);else calendarCursor.setDate(calendarCursor.getDate()+(calendarView==="month"?1:calendarView==="week"?7:1));renderCalendar();});
+function shiftPersianCalendarMonth(direction){
+  const candidate=new Date(calendarCursor);
+  candidate.setDate(candidate.getDate()+(direction*32));
+  candidate.setHours(12,0,0,0);
+  for(let guard=0;guard<32&&persianParts(candidate).day!==1;guard++)candidate.setDate(candidate.getDate()-1);
+  calendarCursor=candidate;
+}
+function shiftCalendarPeriod(direction){
+  calendarCursor=new Date(calendarCursor);
+  if(calendarView==="month"){
+    if(currentLanguage==="fa")shiftPersianCalendarMonth(direction);
+    else {calendarCursor.setDate(1);calendarCursor.setMonth(calendarCursor.getMonth()+direction);}
+  }else if(calendarView==="week"){
+    calendarCursor.setDate(calendarCursor.getDate()+(direction*7));
+  }else{
+    calendarCursor.setDate(calendarCursor.getDate()+direction);
+  }
+  renderCalendar();
+}
+$("calendarPrev")?.addEventListener("click",()=>shiftCalendarPeriod(-1));
+$("calendarNext")?.addEventListener("click",()=>shiftCalendarPeriod(1));
+$("calendarClearSelection")?.addEventListener("click",()=>{
+  selectedCalendarDate="";
+  calendarView="month";
+  renderCalendar();
+  const status=$("calendarSaveStatus");
+  if(status)status.textContent=t("Calendar selection cleared.");
+});
+
 $("calendarToday")?.addEventListener("click",()=>{calendarCursor=new Date();selectedCalendarDate=dateKey(calendarCursor);renderCalendar();});
 
 /* =====================================
@@ -3071,10 +3255,18 @@ $("fileInput")?.addEventListener("change", event => {
 
   showResult(
     "fileResult",
-    t(Name) + ": " + selectedFile.name +
+    t("Name") + ": " + selectedFile.name +
     "\nSize: " + selectedFile.size.toLocaleString() + " bytes" +
     "\n" + t("Type") + ": " + (selectedFile.type || t("Unknown"))
   );
+});
+
+$("clearFileSelection")?.addEventListener("click", () => {
+  const input = $("fileInput");
+  if (input) input.value = "";
+  selectedFile = null;
+  $("fileResult")?.classList.add("hidden");
+  $("hashResult")?.classList.add("hidden");
 });
 
 function renderFileManager() {
@@ -3101,6 +3293,11 @@ function renderFileManager() {
 }
 
 $("managerButton")?.addEventListener("click", renderFileManager);
+$("clearManagerSelection")?.addEventListener("click", () => {
+  const input = $("managerFiles");
+  if (input) input.value = "";
+  $("managerResult")?.classList.add("hidden");
+});
 
 $("hashButton")?.addEventListener("click", async () => {
   if (!selectedFile) {
@@ -3238,6 +3435,74 @@ $("convertButton")?.addEventListener("click", () => {
 });
 
 /* =====================================
+   V29 LOCAL UTILITIES
+===================================== */
+$("calculatorButton")?.addEventListener("click", () => {
+  const expression = ($("calculatorExpression")?.value || "").trim();
+  const output = $("calculatorResult");
+  if (!output) return;
+  // Accept only arithmetic characters; never evaluate arbitrary JavaScript.
+  if (!expression || !/^[0-9+\-*/().%\s]+$/.test(expression) || !/[0-9]/.test(expression)) {
+    showResult("calculatorResult", "Enter a valid arithmetic expression."); return;
+  }
+  try {
+    const tokens = expression.match(/(?:\d+(?:\.\d*)?|\.\d+)|[()+\-*/%]/g) || [];
+    if (tokens.join("").replace(/\s/g, "") !== expression.replace(/\s/g, "")) throw new Error("invalid");
+    // A strict arithmetic parser prevents code execution.
+    let i = 0;
+    function factor(){ const tok=tokens[i++]; if(tok==="+")return factor(); if(tok==="-")return -factor(); if(tok==="("){const v=expr();if(tokens[i++]!==")")throw new Error("paren");return v;} if(tok===undefined||!/^\d*\.?\d+$/.test(tok))throw new Error("number"); return Number(tok); }
+    function term(){let v=factor();while(["*","/","%"].includes(tokens[i])){const op=tokens[i++],r=factor();if((op==="/"||op==="%")&&r===0)throw new Error("zero");v=op==="*"?v*r:op==="/"?v/r:v%r;}return v;}
+    function expr(){let v=term();while(tokens[i]==="+"||tokens[i]==="-"){const op=tokens[i++],r=term();v=op==="+"?v+r:v-r;}return v;}
+    const result=expr(); if(i!==tokens.length||!Number.isFinite(result))throw new Error("invalid");
+    showResult("calculatorResult", `${t("Result")}: ${Number(result.toFixed(10))}`);
+  } catch { showResult("calculatorResult", "Check the expression and try again."); }
+});
+
+$("generatePasswordButton")?.addEventListener("click", () => {
+  const lengthInput = $("generatedPasswordLength");
+  const target = $("generatedPassword");
+  if (!lengthInput || !target) return;
+
+  // Accept Persian, Arabic-Indic, and Western digits.
+  const rawLength = String(lengthInput.value ?? "").trim()
+    .replace(/[۰-۹]/g, digit => String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit)))
+    .replace(/[٠-٩]/g, digit => String("٠١٢٣٤٥٦٧٨٩".indexOf(digit)));
+  const length = Number(rawLength);
+
+  if (!Number.isInteger(length) || length < 12 || length > 64) {
+    target.value = "";
+    showMessage("passwordGeneratorMessage", "Enter a whole number from 12 to 64.", "error");
+    lengthInput.focus();
+    return;
+  }
+
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*+-_";
+  if (!window.crypto?.getRandomValues) {
+    showMessage("passwordGeneratorMessage", "Secure random generation is unavailable in this browser.", "error");
+    return;
+  }
+
+  // Rejection sampling avoids modulo bias and guarantees the requested character count.
+  const limit = 256 - (256 % alphabet.length);
+  let password = "";
+  while (password.length < length) {
+    const bytes = new Uint8Array(Math.max(16, length - password.length));
+    crypto.getRandomValues(bytes);
+    for (const byte of bytes) {
+      if (byte < limit) password += alphabet[byte % alphabet.length];
+      if (password.length === length) break;
+    }
+  }
+  target.value = password;
+  showMessage("passwordGeneratorMessage", "Password generated locally. Save it in a trusted password manager.", "success");
+});
+$("copyGeneratedPasswordButton")?.addEventListener("click", async () => {
+  const value = $("generatedPassword")?.value || ""; if (!value) return;
+  try { await navigator.clipboard.writeText(value); showMessage("passwordGeneratorMessage", "Password copied.", "success"); }
+  catch { showMessage("passwordGeneratorMessage", "Copy is unavailable. Select and copy the password manually.", "error"); }
+});
+
+/* =====================================
    SYSTEM UTILITIES
 ===================================== */
 
@@ -3285,8 +3550,10 @@ applyLanguage(FoNoXidCore.readLocal("fonoxid_language","en")||"en",false);
 
     if (data.session?.user) {
       showApplication(data.session.user);
+      renderSessionSecurity(data.session);
     } else {
       showAuthentication();
+      renderSessionSecurity(null);
     }
 
   } catch (error) {
@@ -3299,9 +3566,10 @@ applyLanguage(FoNoXidCore.readLocal("fonoxid_language","en")||"en",false);
     if (event === "SIGNED_IN" && session?.user) {
       showApplication(session.user);
     }
-
+    if (session) renderSessionSecurity(session);
     if (event === "SIGNED_OUT") {
       showAuthentication();
+      renderSessionSecurity(null);
     }
   });
 }
@@ -3368,7 +3636,7 @@ function renderCloudVault() {
   const crumb = $("cloudBreadcrumb");
   if (!list || !crumb) return;
   crumb.textContent = cloudFolderPath ? t("My Files") + " / " + cloudFolderPath.split("/").join(" / ") : t("My Files");
-  if ($("cloudBackButton")) $("cloudBackButton").disabled = !cloudFolderPath;
+  if ($("cloudBackButton")) { $("cloudBackButton").disabled = !cloudFolderPath; $("cloudBackButton").classList.toggle("hidden", !cloudFolderPath); $("cloudBackButton").title = "Go to the parent folder"; }
   const query = String($("cloudSearchInput")?.value || "").trim().toLowerCase();
   const category = $("cloudCategoryFilter")?.value || "all";
   const sort = $("cloudSortSelect")?.value || "name-asc";
@@ -3396,7 +3664,7 @@ function renderCloudVault() {
   if(stats) stats.textContent=items.length+" "+t("items")+" · "+t("Size")+": "+vaultFormatSize(totalBytes)+" · "+t("Storage usage shown is for the current folder only.");
   list.classList.toggle("vault-grid",($("cloudViewSelect")?.value||"list")==="grid");
   if (!items.length) {
-    list.innerHTML = '<div class="vault-empty">'+escapeHTML(t("This folder is empty. Upload a file or create a folder to get started."))+'</div>';
+    list.innerHTML = '<div class="vault-empty">'+escapeHTML(t("This folder is empty. Upload a file or create a folder to get started."))+'<br><small>'+escapeHTML(t("Delete actions appear beside files or become available after selecting files."))+'</small></div>';
     updateVaultSelection(); return;
   }
   list.innerHTML = items.map(item => {
